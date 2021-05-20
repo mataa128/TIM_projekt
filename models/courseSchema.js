@@ -1,5 +1,8 @@
-function dishSchema() {
-  return {
+const mongoose = require(`mongoose`);
+
+const Course = mongoose.model(
+  `Course`,
+  new mongoose.Schema({
     dishName: { type: String, required: true, minLength: 3, maxLength: 255 },
     category: {
       type: String,
@@ -165,7 +168,7 @@ function dishSchema() {
         message: `A course should have at least one tag.`,
       },
     },
-  };
-}
+  })
+);
 
-module.exports = dishSchema();
+exports.Course = Course;
